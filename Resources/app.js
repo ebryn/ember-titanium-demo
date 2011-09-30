@@ -46,6 +46,18 @@ SCTi.Window.create({
         SCTi.Label.create({text: "Mobile:", left: 10, color: '#ccc', height: 'auto'}),
         SCTi.TextField.create({valueBinding: "App.selectedContact.mobilePhone", left: 70})
       ]
+    }),
+    SCTi.Button.create({
+      height: 40,
+      phoneNumberBinding: "App.selectedContact.mobilePhone",
+      
+      title: function() {
+        return "Call " + this.get('phoneNumber');
+      }.property('phoneNumber').cacheable(),
+      
+      click: function() {
+        alert("Ring ring...");
+      }
     })
   ]
 }).open();
