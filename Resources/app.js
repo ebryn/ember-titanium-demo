@@ -19,32 +19,46 @@ App.selectedContact = App.Contact.create({
   mobilePhone: "123-456-7890"
 });
 
+App.Label = SCTi.Label.extend({
+  left: 10,
+  height: 'auto'
+});
+
+App.Row = SCTi.View.extend({
+  height: 'auto'
+});
+
+App.RowLabel = App.Label.extend({
+  color: '#ccc'
+});
+
+App.TextField = SCTi.TextField.extend({
+  left: 70
+});
+
 SCTi.Window.create({
   titleBinding: "App.selectedContact.fullName", 
   backgroundColor: '#fff',
   layout: 'vertical',
   
   childViews: [
-    SCTi.Label.create({textBinding: "App.selectedContact.fullName", left: 10, height: 'auto'}),
-    SCTi.View.create({
-      height: 'auto',
+    App.Label.create({textBinding: "App.selectedContact.fullName"}),
+    App.Row.create({
       childViews: [
-        SCTi.Label.create({text: "First:", left: 10, color: '#ccc', height: 'auto'}),
-        SCTi.TextField.create({valueBinding: "App.selectedContact.firstName", left: 70}),
+        App.RowLabel.create({text: "First:"}),
+        App.TextField.create({valueBinding: "App.selectedContact.firstName"})
       ]
     }),
-    SCTi.View.create({
-      height: 'auto',
+    App.Row.create({
       childViews: [
-        SCTi.Label.create({text: "Last:", left: 10, color: '#ccc', height: 'auto'}),
-        SCTi.TextField.create({valueBinding: "App.selectedContact.lastName", left: 70})
+        App.RowLabel.create({text: "Last:"}),
+        App.TextField.create({valueBinding: "App.selectedContact.lastName"})
       ]
     }),
-    SCTi.View.create({
-      height: 'auto',
+    App.Row.create({
       childViews: [
-        SCTi.Label.create({text: "Mobile:", left: 10, color: '#ccc', height: 'auto'}),
-        SCTi.TextField.create({valueBinding: "App.selectedContact.mobilePhone", left: 70})
+        App.RowLabel.create({text: "Mobile:"}),
+        App.TextField.create({valueBinding: "App.selectedContact.mobilePhone"})
       ]
     }),
     SCTi.Button.create({
