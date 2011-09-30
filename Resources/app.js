@@ -19,35 +19,33 @@ App.selectedContact = App.Contact.create({
   mobilePhone: "123-456-7890"
 });
 
-(function() {
-  SCTi.Window.create({
-    titleBinding: "App.selectedContact.fullName", 
-    backgroundColor: '#fff',
-    layout: 'vertical',
-    
-    childViews: [
-      SCTi.Label.create({textBinding: "App.selectedContact.fullName", left: 10, height: 'auto'}),
-      SCTi.View.create({
-        height: 'auto',
-        childViews: [
-          SCTi.Label.create({text: "First:", left: 10, color: '#ccc', height: 'auto'}),
-          SCTi.TextField.create({valueBinding: "App.selectedContact.firstName", left: 70}),
-        ]
-      }),
-      SCTi.View.create({
-        height: 'auto',
-        childViews: [
-          SCTi.Label.create({text: "Last:", left: 10, color: '#ccc', height: 'auto'}),
-          SCTi.TextField.create({valueBinding: "App.selectedContact.lastName", left: 70})
-        ]
-      }),
-      SCTi.View.create({
-        height: 'auto',
-        childViews: [
-          SCTi.Label.create({text: "Mobile:", left: 10, color: '#ccc', height: 'auto'}),
-          SCTi.TextField.create({valueBinding: "App.selectedContact.mobilePhone", left: 70})
-        ]
-      })
-    ]
-  }).open();
-})();
+SCTi.Window.create({
+  titleBinding: "App.selectedContact.fullName", 
+  backgroundColor: '#fff',
+  layout: 'vertical',
+  
+  childViews: [
+    SCTi.Label.create({textBinding: "App.selectedContact.fullName", left: 10, height: 'auto'}),
+    SCTi.View.create({
+      height: 'auto',
+      childViews: [
+        SCTi.Label.create({text: "First:", left: 10, color: '#ccc', height: 'auto'}),
+        SCTi.TextField.create({valueBinding: "App.selectedContact.firstName", left: 70}),
+      ]
+    }),
+    SCTi.View.create({
+      height: 'auto',
+      childViews: [
+        SCTi.Label.create({text: "Last:", left: 10, color: '#ccc', height: 'auto'}),
+        SCTi.TextField.create({valueBinding: "App.selectedContact.lastName", left: 70})
+      ]
+    }),
+    SCTi.View.create({
+      height: 'auto',
+      childViews: [
+        SCTi.Label.create({text: "Mobile:", left: 10, color: '#ccc', height: 'auto'}),
+        SCTi.TextField.create({valueBinding: "App.selectedContact.mobilePhone", left: 70})
+      ]
+    })
+  ]
+}).open();
