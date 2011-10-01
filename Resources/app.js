@@ -7,6 +7,7 @@ var App = {};
 App.Contact = SC.Object.extend({
   firstName: null,
   lastName: null,
+  mobilePhone: null,
   
   fullName: function() {
     return this.get('firstName') + ' ' + this.get('lastName'); 
